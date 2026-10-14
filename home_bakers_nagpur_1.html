@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Home Bakers · Nagpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff5f8;--card:#fff;--pink:#f7a8c4;--pink2:#ffd6e4;--mint:#cdf1e3;--lav:#e6dafa;--peach:#ffe3cf;--ink:#5a3446;--muted:#8a6577;--line:#f6cfdd;--ph:#fff0a8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1b23;--card:#3a2630;--pink:#e58bb0;--pink2:#5a3446;--mint:#2f4a40;--lav:#41345a;--peach:#5a4234;--ink:#ffe8f0;--muted:#d7aebf;--line:#59394a;--ph:#6b5a1f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2a1b23;--card:#3a2630;--pink:#e58bb0;--pink2:#5a3446;--mint:#2f4a40;--lav:#41345a;--peach:#5a4234;--ink:#ffe8f0;--muted:#d7aebf;--line:#59394a;--ph:#6b5a1f;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--ink);font-family:"Quicksand","Nunito","Trebuchet MS",system-ui,sans-serif;line-height:1.6;overflow-x:hidden;overflow-wrap:break-word}
+.grid>*,.steps>*,.feats>*,.line .nm{min-width:0}
+h1,h2,h3{overflow-wrap:break-word;font-family:"Fredoka","Baloo 2","Trebuchet MS",system-ui,sans-serif;line-height:1.15}
+.ph{background:var(--ph);border-radius:6px;padding:0 6px;font-weight:700;white-space:normal;overflow-wrap:anywhere}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(50px);opacity:.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav b{white-space:nowrap;font-family:"Fredoka",system-ui,sans-serif;font-size:1.25rem;flex:1}
+nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.9rem}
+@media(max-width:430px){nav{gap:8px;padding-left:10px;padding-right:10px}nav b{font-size:1rem}nav a{font-size:.8rem}nav .btn{padding:8px 12px}.btn{padding:11px 18px}#hero h1{font-size:clamp(2.3rem,13vw,3.4rem)}}
+.btn{display:inline-block;text-decoration:none;text-align:center;border:0;border-radius:999px;padding:12px 22px;background:var(--pink);color:#4a2238;font-family:inherit;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 6px 0 #e286ab,0 14px 24px rgba(231,134,171,.35);transition:transform .15s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #e286ab}
+.btn.alt{background:var(--lav);color:var(--ink);box-shadow:0 6px 0 #c8b4ee}
+.btn:disabled{opacity:.5}
+.maplink{color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--pink);text-underline-offset:3px}
+section{max-width:980px;margin:0 auto;padding:90px 18px 40px}
+#hero{perspective:1000px;perspective-origin:50% 40%}
+.rv{will-change:transform,opacity}
+@keyframes pop{from{opacity:0;translate:0 50px -260px;scale:.7}}
+#stage{animation:pop 1.2s cubic-bezier(.2,.8,.2,1) both}
+#hero{min-height:100svh;display:grid;align-content:center;text-align:center;padding-top:110px}
+#hero h1{font-size:clamp(2.6rem,10vw,5.2rem);color:var(--ink)}
+#hero h1 span{color:var(--pink)}
+#hero p{max-width:34ch;margin:14px auto 22px;color:var(--muted);font-size:1.1rem}
+#stage{height:min(48vw,260px);min-height:190px;position:relative;transform-style:preserve-3d;margin:6px auto 10px;width:min(100%,460px)}
+#stage svg{position:absolute;aspect-ratio:1;height:auto;width:30%;max-width:120px;filter:drop-shadow(0 18px 14px rgba(200,100,140,.28));animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{margin-top:-14px}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;transform-style:preserve-3d}
+.card{background:var(--card);border:2px solid var(--line);border-radius:26px;padding:18px;transition:rotate .25s ease,scale .25s ease;transform-style:preserve-3d;box-shadow:0 14px 30px rgba(231,134,171,.15)}
+.card .art{height:120px;border-radius:20px;display:grid;place-items:center;margin-bottom:12px;transform:translateZ(30px)}
+.card .art svg{width:84px;height:84px}
+.card h3{font-size:1.2rem}.card p{color:var(--muted);font-size:.92rem;margin:4px 0 10px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:800;font-size:1.1rem}
+.card .btn{padding:8px 16px;font-size:.9rem}
+h2{font-size:clamp(1.8rem,6vw,2.6rem);margin-bottom:10px;text-align:center}
+.lead{text-align:center;color:var(--muted);max-width:52ch;margin:0 auto 26px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.step{background:var(--card);border-radius:24px;padding:20px;border:2px dashed var(--pink);position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:18px;width:34px;height:34px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-weight:800;color:#4a2238}
+.info{background:var(--card);border-radius:26px;padding:22px;border:2px solid var(--line);display:grid;gap:8px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px}.chip{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:700;font-size:.9rem}.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:20px}.feat{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px 8px;text-align:center;font-weight:700;font-size:.9rem}.feat i{display:block;font-style:normal;font-size:1.8rem}
+footer{text-align:center;padding:30px 18px 50px;color:var(--muted);font-size:.85rem}
+#fab{position:relative}
+#cnt{position:absolute;top:-8px;right:-8px;background:var(--mint);color:var(--ink);border-radius:99px;min-width:22px;height:22px;font-size:.75rem;display:grid;place-items:center;font-weight:800}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(100%,420px);background:var(--bg);z-index:40;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:calc(16px + env(safe-area-inset-top,0px)) 18px calc(16px + env(safe-area-inset-bottom,0px));overflow-y:auto;border-left:2px solid var(--line);box-shadow:-20px 0 50px rgba(0,0,0,.12)}
+.drawer.open{transform:none}
+.veil{position:fixed;inset:0;background:rgba(90,52,70,.35);z-index:30;opacity:0;pointer-events:none;transition:.3s}
+.veil.open{opacity:1;pointer-events:auto}
+.line{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .nm{flex:1;font-weight:700}
+.q button{width:28px;height:28px;border-radius:50%;border:0;background:var(--pink2);color:var(--ink);font-weight:800;cursor:pointer}
+label{display:block;font-weight:700;font-size:.85rem;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:11px 13px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--pink)}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pay label{margin:0;border:2px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center;cursor:pointer;background:var(--card);font-size:.82rem}
+.pay input{display:none}
+.pay input:checked+span{color:#4a2238}
+.pay label:has(input:checked){background:var(--pink);border-color:#e286ab}
+.tot{display:flex;justify-content:space-between;padding:4px 0}
+.tot.big{font-size:1.2rem;font-weight:800}
+.note{font-size:.78rem;color:var(--muted);margin-top:8px}
+.hide{display:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div id="bg"><div class="blob" style="width:340px;height:340px;background:var(--pink2);left:-90px;top:8%"></div><div class="blob" style="width:300px;height:300px;background:var(--lav);right:-80px;top:38%"></div><div class="blob" style="width:320px;height:320px;background:var(--mint);left:20%;top:72%"></div></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="cupcake" viewBox="0 0 100 100"><path d="M24 54h52l-7 36H31z" fill="#ffc9a8"/><path d="M36 54l3 36M50 54v36M64 54l-3 36" stroke="#f0a77f" stroke-width="3"/><ellipse cx="50" cy="52" rx="30" ry="9" fill="#f7a8c4"/><path d="M26 50c0-20 14-28 24-30 10 2 24 10 24 30-8 5-40 5-48 0z" fill="#ffb8d1"/><path d="M34 42c10 6 22 6 32 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/><circle cx="50" cy="18" r="6" fill="#ff7aa5"/></symbol>
+<symbol id="cake" viewBox="0 0 100 100"><path d="M10 78V50l80-14v42z" fill="#fff3e6"/><path d="M10 62l80-14v8L10 70z" fill="#ffb8d1"/><path d="M10 50l80-14-14-10L24 34z" fill="#ffd6e4"/><path d="M10 78h80v8H10z" fill="#f0a77f"/><circle cx="54" cy="28" r="7" fill="#ff7aa5"/><path d="M54 21c2-6 6-8 9-8" stroke="#6bbf99" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="cookie" viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#f6cf9c"/><circle cx="50" cy="50" r="36" fill="none" stroke="#e8b377" stroke-width="4"/><g fill="#8a5a44"><circle cx="38" cy="38" r="5"/><circle cx="62" cy="44" r="5"/><circle cx="46" cy="62" r="5"/><circle cx="68" cy="66" r="4"/><circle cx="32" cy="58" r="4"/></g><g fill="#ffd6e4"><circle cx="54" cy="30" r="3"/><circle cx="72" cy="55" r="3"/></g></symbol>
+<symbol id="macaron" viewBox="0 0 100 100"><ellipse cx="50" cy="36" rx="32" ry="16" fill="#e6dafa"/><rect x="20" y="42" width="60" height="12" rx="6" fill="#fff"/><ellipse cx="50" cy="64" rx="32" ry="16" fill="#cdf1e3"/><path d="M22 36c4-8 14-12 28-12" stroke="#fff" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/></symbol>
+<symbol id="bread" viewBox="0 0 100 100"><path d="M14 70c-8-28 10-44 36-44s44 16 36 44z" fill="#f2c28c"/><path d="M34 40l10 18M52 36l10 20M70 42l8 14" stroke="#d99c5f" stroke-width="5" stroke-linecap="round"/><path d="M14 70h72v8H14z" fill="#e8b377"/></symbol>
+</defs></svg>
+
+<nav><b>🎀 Home Bakers</b><a href="#menu">Menu</a><a href="#how">How it works</a><button class="btn" id="fab" aria-label="Open cart">🛍️<span id="cnt">0</span></button></nav>
+
+<main>
+<section id="hero" class="panel">
+  <div id="stage">
+    <svg data-z="80" style="left:2%;top:30%;animation-delay:-1s"><use href="#cupcake"/></svg>
+    <svg data-z="140" style="left:34%;top:0;width:34%;max-width:140px"><use href="#cake"/></svg>
+    <svg data-z="60" style="right:2%;top:34%;animation-delay:-2s"><use href="#macaron"/></svg>
+    <svg data-z="20" style="left:20%;bottom:-6%;width:22%;animation-delay:-3s"><use href="#cookie"/></svg>
+    <svg data-z="40" style="right:20%;bottom:-8%;width:22%;animation-delay:-.5s"><use href="#bread"/></svg>
+  </div>
+  <h1>Home <span>Bakers</span></h1>
+  <p>Freshly baked cakes in Nagpur, made with love. Same-day delivery available.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn" href="#menu">Order now</a><a class="btn alt" href="tel:+917020736957">📞 Call now</a></div>
+</section>
+
+<section id="story" class="panel">
+  <h2>Baked with love, one batch at a time</h2>
+  <p class="lead">Every cake, cupcake and cookie is baked in a home kitchen in Nagpur, made to order for birthdays, celebrations and everyday cravings. <span class="ph">[Founder story / years of baking — to be confirmed]</span></p>
+</section>
+
+<section id="specialities" class="panel">
+  <h2>Cakes for every celebration</h2>
+  <p class="lead">Popular specialities and categories</p>
+  <div class="chips"><span class="chip">🎂 Birthday Cakes</span><span class="chip">💞 Anniversary Cakes</span><span class="chip">🌱 Eggless Cakes</span><span class="chip">🖼️ Photo Cakes</span><span class="chip">🍫 Chocolate Cakes</span><span class="chip">🎨 Designer Cakes</span><span class="chip">💍 Wedding Cakes</span><span class="chip">🧁 Cup Cakes</span><span class="chip">🌙 Midnight Delivery Cakes <span class="ph">[confirm hours]</span></span><span class="chip">🍓 Strawberry Cakes</span><span class="chip">✨ Custom Cakes</span><span class="chip">🏢 Corporate Cakes</span></div>
+  <div class="feats"><div class="feat"><i>🚚</i>Same Day Delivery</div><div class="feat"><i>🎂</i>Freshly Baked Daily</div><div class="feat"><i>🍬</i>Custom Cakes Available</div><div class="feat"><i>📦</i>Secure Packaging</div><div class="feat"><i>⏱️</i>On-Time Delivery</div><div class="feat"><i>🛍️</i>Online Ordering Available</div></div>
+</section>
+
+<section id="menu" class="panel">
+  <h2>Our sweet menu</h2>
+  <p class="lead">Our best-selling cakes. <span class="ph">[Confirm weights/sizes &amp; final prices]</span></p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="how" class="panel">
+  <h2>How ordering works</h2>
+  <p class="lead">Four easy steps from craving to doorstep.</p>
+  <div class="steps">
+    <div class="step"><h3>Pick</h3><p>Add your favourites to the cart.</p></div>
+    <div class="step"><h3>Checkout</h3><p>Share delivery details and choose a slot.</p></div>
+    <div class="step"><h3>Pay</h3><p>UPI, card or cash on delivery.</p></div>
+    <div class="step"><h3>Enjoy</h3><p>We bake fresh and deliver, same day where available. <span class="ph">[Order cut-off time — confirm]</span></p></div>
+  </div>
+</section>
+
+<section id="contact" class="panel">
+  <h2>Find &amp; reach us</h2>
+  <div class="info">
+    <div>📍 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Near+Doctor+Dhangre+Clinic,+Surendra+Nagar,+Vivekanand+Nagar,+Nagpur,+Maharashtra+440015" target="_blank" rel="noopener">Near Doctor Dhangre Clinic, Surendra Nagar, Vivekanand Nagar, Nagpur, Maharashtra 440015</a><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Near+Doctor+Dhangre+Clinic,+Surendra+Nagar,+Vivekanand+Nagar,+Nagpur,+Maharashtra+440015" target="_blank" rel="noopener">🗺️ Open in Google Maps</a><a class="btn alt" href="https://www.google.com/maps/dir/?api=1&destination=Near+Doctor+Dhangre+Clinic,+Surendra+Nagar,+Vivekanand+Nagar,+Nagpur,+Maharashtra+440015" target="_blank" rel="noopener">🧭 Get directions</a></div></div>
+    <div>📞 <a href="tel:+917020736957" style="color:inherit;font-weight:700">+91 70207 36957</a></div>
+    <div>⏰ Timings on request <span class="ph">[confirm order hours]</span></div>
+    <div>🚚 Service area: Nagpur, Maharashtra · PIN 440015</div>
+      </div>
+</section>
+</main>
+
+<footer>© Home Bakers, Nagpur · Illustrations are generated artwork, not photos of our products.<br>
+<button class="btn alt" id="theme" style="margin-top:12px;padding:6px 14px;font-size:.8rem">Toggle theme</button></footer>
+
+<div class="veil" id="veil"></div>
+
+<aside class="drawer" id="cart" aria-label="Cart">
+  <div class="row"><h2 style="margin:0">Your cart</h2><button class="btn alt" data-close style="padding:6px 14px">✕</button></div>
+  <div id="lines"></div>
+  <div id="sum"></div>
+  <button class="btn" id="goCheckout" style="width:100%;margin-top:14px">Checkout</button>
+</aside>
+
+<aside class="drawer" id="checkout" aria-label="Checkout">
+  <div class="row"><h2 style="margin:0">Checkout</h2><button class="btn alt" data-close style="padding:6px 14px">✕</button></div>
+  <div id="formWrap">
+    <label for="fn">Full name</label><input id="fn" autocomplete="name">
+    <label for="ph">Phone</label><input id="ph" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile">
+    <label for="ad">Delivery address (Nagpur)</label><textarea id="ad" rows="2" autocomplete="street-address"></textarea>
+    <label for="pin">Pincode</label><input id="pin" inputmode="numeric" maxlength="6" placeholder="440015">
+    <label for="slot">Delivery date &amp; slot</label>
+    <div class="row"><input id="dt" type="date"><select id="sl"><option>10am–1pm</option><option>2pm–5pm</option><option>5pm–8pm</option></select></div>
+    <label>Payment</label>
+    <div class="pay">
+      <label><input type="radio" name="pm" value="upi" checked><span>UPI</span></label>
+      <label><input type="radio" name="pm" value="card"><span>Card</span></label>
+      <label><input type="radio" name="pm" value="cod"><span>Cash on delivery</span></label>
+    </div>
+    <div id="upiBox"><label for="vpa">UPI ID</label><input id="vpa" placeholder="name@bank"></div>
+    <p class="note hide" id="cardNote">Card details are entered on the payment gateway's secure window — never on this page.</p>
+    <div id="sum2" style="margin-top:14px"></div>
+    <p class="note" id="err" style="color:#c0376b"></p>
+    <button class="btn" id="pay" style="width:100%;margin-top:10px">Place order</button>
+    <p class="note">Demo mode: no real payment is taken until a gateway is connected (see build notes).</p>
+  </div>
+  <div id="done" class="hide" style="text-align:center;padding-top:30px">
+    <svg width="110" height="110"><use href="#cupcake"/></svg>
+    <h2>Order placed! 🎉</h2><p id="doneMsg" class="lead"></p>
+    <button class="btn" data-close>Back to menu</button>
+  </div>
+</aside>
+
+<script>
+const CONFIG={deliveryFee:40,freeOver:600,gatewayKey:"PLACEHOLDER_RAZORPAY_KEY_ID",orderEndpoint:"PLACEHOLDER_/api/create-order"};
+const R="#e0314f",CH="#5a3a2c";
+const P=[
+{id:1,n:"Chocolate Truffle",d:"Rich Belgian chocolate truffle. Eggless option available.",p:599,c:"--peach",k:["#8a5a44","#6b4332",[CH,CH,CH,CH,CH]]},
+{id:2,n:"Black Forest Cake",d:"Cherry-soaked sponge with whipped cream.",p:499,c:"--pink2",k:["#fff","#6b4332",[R,R,R,R,R]]},
+{id:3,n:"Butterscotch Cake",d:"Creamy butterscotch with caramel crunch.",p:499,c:"--peach",k:["#f6d9a0","#f0c27a",["#e8a24a","#e8a24a","#e8a24a","#e8a24a","#e8a24a"]]},
+{id:4,n:"Pineapple Cake",d:"Light vanilla sponge with pineapple and cherries.",p:495,c:"--mint",k:["#fff","#fff3c4",["#ffd84d",R,"#ffd84d",R,"#ffd84d"]]},
+{id:5,n:"Red Velvet Cake",d:"Velvety red velvet with cream cheese.",p:649,c:"--pink2",k:["#fff","#c9344f",["#c9344f","#c9344f","#c9344f","#c9344f","#c9344f"]]},
+{id:6,n:"Fruit Cake",d:"Fresh seasonal fruit cake.",p:749,c:"--lav",k:["#fff","#fff3e6",[R,"#ffb020","#6bbf4a","#7a4fd0","#ffb020"]]},
+{id:7,n:"Vanilla Cake",d:"Classic vanilla. Custom fondant designs for birthdays and celebrations.",p:499,c:"--mint",k:["#fff8e0","#fff0c8",["#ffe9a8","#ffe9a8","#ffe9a8","#ffe9a8","#ffe9a8"]]},
+{id:8,n:"Chocolate Cake",d:"Indulgent chocolate cake. <span class='ph'>[confirm name &amp; details]</span>",p:545,c:"--lav",k:["#7a4a38",CH,["#d9a87a","#d9a87a","#d9a87a","#d9a87a","#d9a87a"]]},
+{id:9,n:"Ferrero Rocher Cake",d:"Chocolate cake topped with Ferrero Rocher. <span class='ph'>[confirm details]</span>",p:599,c:"--peach",k:["#8a5a44","#6b4332",["#e8b84a","#e8b84a","#e8b84a","#e8b84a","#e8b84a"]]},
+{id:10,n:"Strawberry Cake",d:"Soft strawberry cake with fresh berry goodness.",p:495,c:"--pink2",k:["#ffd6e4","#ffb8d1",[R,R,R,R,R]]}];
+function cakeArt(x){const[f,s,d]=x.k,pos=[[30,45],[42,40],[58,40],[70,45],[50,46]];
+ return `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="86" rx="40" ry="7" fill="#fff" opacity=".8"/><path d="M16 52v28c0 7 68 7 68 0V52z" fill="${s}"/><path d="M16 52c0 10 8 18 12 8s8 14 12 4 8 6 12 0 8 12 12 2 8 8 12-4 8-4 8-10z" fill="${f}"/><ellipse cx="50" cy="50" rx="34" ry="11" fill="${f}"/>${pos.map((q,i)=>`<circle cx="${q[0]}" cy="${q[1]}" r="6" fill="${d[i]}"/>`).join("")}</svg>`}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const inr=n=>"₹"+n.toLocaleString("en-IN");
+let cart={};
+try{cart=JSON.parse(localStorage.getItem("hb_cart")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("hb_cart",JSON.stringify(cart))}catch(e){}};
+
+$("#grid").innerHTML=P.map(x=>`<div class="card" data-tilt><div class="art" style="background:var(${x.c})">${cakeArt(x)}</div><h3>${x.n}</h3><p>${x.d}</p><div class="row"><span class="price">${inr(x.p)}</span><button class="btn" data-add="${x.id}">Add</button></div></div>`).join("");
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]");if(a){cart[a.dataset.add]=(cart[a.dataset.add]||0)+1;save();draw();openDrawer("cart");return}
+  const q=e.target.closest("[data-q]");if(q){const[id,dl]=q.dataset.q.split(":");cart[id]=(cart[id]||0)+ +dl;if(cart[id]<=0)delete cart[id];save();draw();return}
+  if(e.target.closest("[data-close]"))closeAll();
+});
+function totals(){let s=0;P.forEach(x=>s+=(cart[x.id]||0)*x.p);const f=s&&s<CONFIG.freeOver?CONFIG.deliveryFee:0;return{s,f,t:s+f}}
+function draw(){
+  const n=Object.values(cart).reduce((a,b)=>a+b,0);$("#cnt").textContent=n;
+  $("#lines").innerHTML=n?P.filter(x=>cart[x.id]).map(x=>`<div class="line"><span class="nm">${x.n}<br><small>${inr(x.p)}</small></span><span class="q"><button data-q="${x.id}:-1">−</button> ${cart[x.id]} <button data-q="${x.id}:1">+</button></span></div>`).join(""):"<p class='lead' style='margin-top:30px'>Your cart is empty 🧁</p>";
+  const t=totals(),h=`<div class="tot"><span>Subtotal</span><span>${inr(t.s)}</span></div><div class="tot"><span>Delivery <span class="ph">[fee]</span></span><span>${t.f?inr(t.f):"Free"}</span></div><div class="tot big"><span>Total</span><span>${inr(t.t)}</span></div>`;
+  $("#sum").innerHTML=n?h:"";$("#sum2").innerHTML=h;$("#goCheckout").disabled=!n;
+}
+function openDrawer(id){closeAll(true);$("#"+id).classList.add("open");$("#veil").classList.add("open");document.body.style.overflow="hidden"}
+function closeAll(keep){$$(".drawer").forEach(d=>d.classList.remove("open"));if(!keep){$("#veil").classList.remove("open");document.body.style.overflow=""}}
+addEventListener("keydown",e=>{if(e.key==="Escape")closeAll()});
+$("#fab").onclick=()=>openDrawer("cart");$("#veil").onclick=()=>closeAll();
+$("#goCheckout").onclick=()=>{$("#formWrap").classList.remove("hide");$("#done").classList.add("hide");openDrawer("checkout")};
+$("#dt").min=new Date(Date.now()+19800000).toISOString().slice(0,10);
+$$("[name=pm]").forEach(r=>r.onchange=()=>{const v=$("[name=pm]:checked").value;$("#upiBox").classList.toggle("hide",v!=="upi");$("#cardNote").classList.toggle("hide",v!=="card")});
+
+$("#pay").onclick=async()=>{
+  const err=m=>$("#err").textContent=m,v=id=>$(id).value.trim(),pm=$("[name=pm]:checked").value;
+  if(v("#fn").length<2)return err("Please enter your name.");
+  if(!/^[6-9]\d{9}$/.test(v("#ph")))return err("Enter a valid 10-digit mobile number.");
+  if(v("#ad").length<8)return err("Please enter a full delivery address.");
+  if(!/^\d{6}$/.test(v("#pin")))return err("Enter a 6-digit pincode.");
+  if(!v("#dt"))return err("Pick a delivery date.");
+  if(pm==="upi"&&!/^[\w.\-]{2,}@[\w]{2,}$/.test(v("#vpa")))return err("Enter a valid UPI ID.");
+  err("");$("#pay").disabled=true;$("#pay").textContent="Processing…";
+  try{
+    const order={items:cart,total:totals().t,customer:{name:v("#fn"),phone:v("#ph"),address:v("#ad"),pin:v("#pin")},slot:v("#dt")+" "+$("#sl").value,method:pm};
+    const id=await takePayment(order);
+    cart={};save();draw();
+    $("#formWrap").classList.add("hide");$("#done").classList.remove("hide");
+    $("#doneMsg").textContent=`Order ${id} confirmed for ${order.slot}. We'll message you on ${order.customer.phone}.`;
+  }catch(e){err(e.message||"Payment failed. Please try again.")}
+  $("#pay").disabled=false;$("#pay").textContent="Place order";
+};
+/* PAYMENT HOOK — demo only. Replace with: POST order to your server, open Razorpay Checkout with the returned order_id,
+   then verify the signature on the server. See build notes. */
+async function takePayment(order){
+  await new Promise(r=>setTimeout(r,1000));
+  return "HB"+Math.random().toString(36).slice(2,8).toUpperCase();
+}
+
+/* 3D flow v2: every block glides in through depth, driven continuously by scroll position */
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches,hero=$("#hero"),st=$("#stage");
+$$("#stage svg").forEach(s=>s.style.transform=`translateZ(${s.dataset.z}px)`);
+const rv=$$("section:not(#hero) h2,section:not(#hero) .lead,.chip,.feat,.card,.step,.info");
+rv.forEach(el=>{el.classList.add("rv");el._d=[...el.parentNode.children].indexOf(el)%2?1:-1});
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ease=t=>1-Math.pow(1-t,3);
+let tx=0,ty=0,cx=0,cy=0,raf=0;
+function loop(){raf=0;const y=scrollY,vh=innerHeight,f=clamp(y/vh);
+  cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;
+  st.style.transform=`rotateY(${cx*26+f*50}deg) rotateX(${-cy*16+f*22}deg) translateZ(${-f*180}px)`;
+  hero.style.opacity=1-f*.9;hero.style.translate=`0 ${-f*40}px`;
+  $$(".blob").forEach((b,i)=>b.style.transform=`translate3d(${Math.sin(y/400+i)*40}px,${-y*(.08+i*.04)}px,0)`);
+  rv.forEach(el=>{const r=el.getBoundingClientRect(),p=(r.top+r.height/2)/vh,
+    t=ease(clamp((p-.62)/.38)),u=ease(clamp((.18-p)/.3));
+    el.style.transform=`perspective(900px) translate3d(${el._d*t*70}px,${t*60-u*20}px,${-t*280-u*160}px) rotateX(${t*24-u*14}deg) rotateY(${-el._d*t*22}deg)`;
+    el.style.opacity=clamp(1-t*1.1-u*.8)});
+  if(Math.abs(tx-cx)>.001||Math.abs(ty-cy)>.001)raf=requestAnimationFrame(loop)}
+const kick=()=>{raf||(raf=requestAnimationFrame(loop))};
+if(!rm){
+  addEventListener("scroll",kick,{passive:true});addEventListener("resize",kick);kick();
+  addEventListener("pointermove",e=>{if(e.pointerType!=="mouse")return;tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;kick();
+    const c=e.target.closest&&e.target.closest("[data-tilt]");
+    $$("[data-tilt]").forEach(k=>{if(k===c){const r=k.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;k.style.rotate=`${-ny} ${nx} 0 ${Math.hypot(nx,ny)*28}deg`;k.style.scale="1.03"}else{k.style.rotate="";k.style.scale=""}})});
+  addEventListener("deviceorientation",e=>{if(e.gamma==null)return;tx=clamp(e.gamma,-30,30)/60;ty=clamp((e.beta-45)*.5,-20,20)/40;kick()})}
+$("#theme").onclick=()=>{const d=document.documentElement,dark=getComputedStyle(d).colorScheme==="dark";d.dataset.theme=dark?"light":"dark"};
+draw();
+</script>
+</body>
+</html>
